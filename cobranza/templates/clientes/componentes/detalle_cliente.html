@@ -1,0 +1,21 @@
+{% extends 'clientes/base.html' %}
+
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="card-title">
+            {{cliente}} - {{cliente.apellidos}} - {{cliente.pk}} - {{cliente.status}}
+        </h3>
+        <hr>
+        <p><strong>Email:</strong>{{cliente.email}} </p>
+        <p><strong>Edad:</strong>{{cliente.edad}} </p>
+        <p><strong>Telefono:</strong>{{cliente.telefono}}</p>
+        <p><strong>Ciudad:</strong>{{cliente.ciudad}}</p>
+        <div class="d-flex gap-2">
+            <a href="{% url 'cobranza:editar_cliente' cliente.pk %}" class="btn btn-warning btn-sm">Editar cliente</a>
+            <a href="{% url 'cobranza:nueva_cita' cliente.pk %}" class="btn btn-warning btn-sm">Generar cita</a>
+            <a href="{% url 'cobranza:clientes'%}" class="btn btn-warning btn-sm">Regresar</a>
+        </div>
+    </div>
+
+    {% endblock %}

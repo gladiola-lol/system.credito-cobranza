@@ -1,0 +1,10 @@
+# prod.py
+
+from .base import *
+
+DEBUG = False
+ALLOWED_HOSTS = ['*']  # TU DOMINIO.COM
+
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True

@@ -1,0 +1,25 @@
+{% extends 'clientes/base.html' %}
+
+{% block title %} lista de clientes {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Clientes</h1>
+
+    <a href="{% url 'cobranza:crear_cliente'%}" class="btn btn-success mb-3">Registrate como nuevo cliente</a>
+</div>
+
+{%for cliente in clientes%}
+<div class="card mb-3 p-3">
+    <h5>{{ cliente.nombre }} - {{cliente.apellidos}} </h5>
+    <p>{{cliente.telefono}}</p>
+
+    <a href="{% url 'cobranza:detalle_cliente' cliente.pk %}" class="btn btn-info btn-sm">ver cliente</a>
+
+    <a href="{% url 'cobranza:nueva_cita' cliente.pk %}" class="btn btn-warning btn-sm">Generar cita</a>
+
+    </p>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'clientes/base.html' %}
+
+{% block title %}Contactanos{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+
+    <label for="nombre">
+        <input type="text" name="nombre" placeholder="nombre" id="nombre" required></label>
+    <label for="email">
+        <input type="email" name="correo" placeholder="correo electronico" id="email" required></label>
+    <label for="tel">
+        <input type="tel" name="telefono" placeholder="telefono" id="tel" required></label>
+    <button type="submit">ENVIAR</button>
+
+</form>
+{% if mensaje %}
+<p style="color:green;">
+    Nos comunicaremos contigo lo mas pronto 😊
+</p>
+{% endif %}
+
+{% endblock %}

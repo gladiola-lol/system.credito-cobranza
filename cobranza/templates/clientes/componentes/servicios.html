@@ -1,0 +1,52 @@
+{% extends 'clientes/base.html' %}
+{% load static %}
+
+{% block title %}Nuestros Servicios 2026 {% endblock%}
+
+{% block content %}
+{% for servicio in servicios}
+<h1>Servicios</h1>
+<div class="card">
+    <h2>{{servicio.nombre}} - {{servicio.duracion}} - {{servicio.precio}}</h2>
+    <h3>Limpieza facial</h3>
+    <img src="{% static 'cobranza/img/facial.jpg' %}" alt="Hero" class="img-fluid">
+    <p>La limpieza facial es un procedimiento esencial para purificar, exfoliar y revitalizar la piel, eliminando
+        impurezas, células muertas y el
+        exceso de grasa acumulado.Se recomienda realizarla diariamente (mañana y noche) y acudir a una limpieza
+        profesional profunda cada 1-2 meses
+        para prevenir acné, puntos negros y el envejecimiento prematuro</p>
+    <div class="mt-3">
+        <a href="{% url 'cobranza:crear_cliente'%}" class="btn btn-dark">
+            Registrate para Agendar
+        </a>
+    </div>
+
+    <h2>Laser co2 Fraccionado</h2>
+    <img src="{% static 'cobranza/img/laser.jpg' %}" alt="Hero" class="img-fluid">
+    <p>El láser CO2 facial es un tratamiento de rejuvenecimiento avanzado que utiliza pulsos de luz para eliminar capas
+        superficiales de la
+        piel dañada y estimular la producción de colágeno en capas
+        profundas. Es altamente efectivo para tratar arrugas, cicatrices de acné, manchas y flacidez. Los resultados
+        ofrecen una piel más tersa,
+        uniforme y luminosa</p>
+    <div class="mt-3">
+        <a href="{% url 'cobranza:crear_cliente' %}" class="btn btn-dark">
+            Registrarme para Agendar
+        </a>
+    </div>
+
+    <h2>Masaje</h2>
+    <img src="{% static 'cobranza/img/masaje.jpg' %}" alt="Masaje relajante" class="img-fluid">
+    <p>Las técnicas de masaje fundamentales (roce, amasamiento, fricción, percusión y vibración) se aplican de forma
+        manual para relajar, descontracturar
+        o estimular los tejidos. Utilizan movimientos rítmicos, presión (superficial o profunda)
+        y técnicas específicas como la compresión para aumentar la circulación, mejorar la movilidad y aliviar la
+        tensión muscular</p>
+    <div class="mt-3">
+        <a href="{% url 'cobranza:crear_cliente' %}" class="btn btn-dark">
+            Registrarme para Agendar
+        </a>
+    </div>
+
+</div>
+{% endblock %}

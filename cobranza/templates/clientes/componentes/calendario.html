@@ -1,0 +1,37 @@
+{% extends 'clientes/base.html' %}
+
+{% block title %} Revisa nuestro Calendario por Periodos{% endblock %}
+
+
+{% block content %}
+<h3>Ingresa el rango de dos periodos para consultar las citas</h3>
+<form method="get">
+
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+
+</form>
+{% if citas %}
+{% for cita in citas%}
+<p>
+    {{cita.cliente}} - {{cita.hora}} - {{cita.estado}}</p>
+
+<a href="{% url 'cobranza:editar_cita' cita.pk %}">Editar cita</a>
+<a href="{% url 'cobranza:eliminar_cita' cita.pk %}">Eliminar cita</a>
+
+{% endfor %}
+
+{% elif request.GET %}
+<div class="alert alert-warning">
+    No hay citas registradas en este periodo.
+</div>
+<a href="{% url cobranza:crear_cliente %}" class="btn btn-primary">Registrate para Generar una cita</a>
+
+{% endif%}
+
+
+<a href="{% url 'cobranza:home'%}">Ir al inicio</a>
+
+
+
+{% endblock %}
